@@ -21,7 +21,7 @@ export default function HomeScreen({ navigation }) {
     try {
       (async () => {
         const fetchData = await axios.get(
-          " https://lereacteur-bootcamp-api.herokuapp.com/api/airbnb/rooms"
+          "https://lereacteur-bootcamp-api.herokuapp.com/api/airbnb/rooms"
         );
 
         setListOffers([...fetchData.data]);
