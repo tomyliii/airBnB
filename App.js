@@ -117,6 +117,7 @@ export default function App() {
                     headerLeft: ({ canGoBack }) => {
                       return canGoBack ? <Arrow /> : null;
                     },
+                    headerBackVisible: false,
                   }}
                 >
                   {(props) => (
@@ -134,6 +135,7 @@ export default function App() {
                     headerLeft: (props) => {
                       return <Arrow />;
                     },
+                    headerBackVisible: false,
                   }}
                 >
                   {(props) => (
@@ -201,6 +203,7 @@ export default function App() {
                     headerLeft: (props) => {
                       return <Arrow />;
                     },
+                    headerBackVisible: false,
                   }}
                 >
                   {(props) => <RoomScreen {...props} />}

@@ -33,6 +33,9 @@ export default function ProfileScreen({ userToken, setToken }) {
         );
         // console.log(JSON.stringify(fetchData, null, 2));
         setUser({ ...fetchData.data });
+        setDescription(fetchData.data.description);
+        setEmail(fetchData.data.email);
+        setUsername(fetchData.data.username);
       })();
 
       setIsReady(true);
@@ -114,9 +117,7 @@ export default function ProfileScreen({ userToken, setToken }) {
           { headers: { Authorization: "Bearer " + userToken } }
         );
         // console.log("donnees-----------", JSON.stringify(response, null, 2));
-        setEmail("");
-        setDescription("");
-        setUsername("");
+
         setUser({ ...response.data });
         setIsReady(true);
       }
