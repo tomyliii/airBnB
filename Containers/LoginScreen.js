@@ -34,8 +34,8 @@ export default function LoginScreen({ setToken, navigation }) {
           }
         );
 
-        setToken(response.data.token);
-        await AsyncStorage.setItem("id", response.data.id);
+        setToken(response.data.token, response.data.id);
+        // await AsyncStorage.setItem("id", response.data.id);
         // console.log(JSON.stringify(response, null, 2));
       } catch (error) {
         // console.log(JSON.stringify(error.response, null, 2));

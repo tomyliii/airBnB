@@ -14,7 +14,7 @@ import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-export default function ProfileScreen({ userToken, setToken }) {
+export default function ProfileScreen({ userToken, setToken, id }) {
   const [selectedPicture, setSelectedPicture] = useState(null);
   const [isReady, setIsReady] = useState(false);
   const [user, setUser] = useState({});
@@ -26,7 +26,6 @@ export default function ProfileScreen({ userToken, setToken }) {
   useEffect(() => {
     try {
       (async () => {
-        const id = await AsyncStorage.getItem("id");
         const fetchData = await axios.get(
           ` https://lereacteur-bootcamp-api.herokuapp.com/api/airbnb/user/${id}`,
           { headers: { Authorization: "Bearer " + userToken } }
@@ -139,8 +138,8 @@ export default function ProfileScreen({ userToken, setToken }) {
     } else {
       return (
         <View style={styles.img}>
-          <Text>
-            <Ionicons name="person-sharp" size={24} color="black" />
+          <Text style={{ textAlign: "center" }}>
+            <Ionicons name="person-sharp" size={100} color="black" />
           </Text>
         </View>
       );
@@ -233,7 +232,7 @@ export default function ProfileScreen({ userToken, setToken }) {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            setToken(null);
+            setToken(null, null);
           }}
           style={[styles.btn, styles.btnDisconect]}
         >
@@ -254,6 +253,8 @@ const useStyle = () => {
       borderRadius: 75,
       borderColor: "red",
       borderWidth: 1,
+      alignItems: "center",
+      justifyContent: "center",
     },
     input: { width: "100%", borderBottomColor: "red", borderBottomWidth: 1 },
     btn: {

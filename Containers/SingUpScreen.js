@@ -38,8 +38,8 @@ export default function SingUpScreen({ setToken, navigation }) {
               password,
             }
           );
-          await AsyncStorage.setItem("id", response.data.id);
-          setToken(response.data.token);
+          // await AsyncStorage.setItem("id", response.data.id);
+          setToken(response.data.token, response.data.id);
           // console.log(JSON.stringify(response, null, 2));
         } catch (error) {
           console.log(error);
